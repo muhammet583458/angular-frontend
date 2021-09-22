@@ -1,0 +1,38 @@
+
+<div class="container">
+  <div class="d-flex flex-row p-3 justify-content-end">
+      <button routerLink="/contacts/add" style="margin-right: 1rem;" class="btn btn-primary">Add Contact</button>
+      <button routerLink="/contacts/edit/{{getCurrentContactId()}}" style="margin-right: 1rem;" class="btn btn-warning">Edit Contact</button>
+      <button (click)="deleteContact()" style="margin-right: 1rem;" class="btn btn-danger">Delete Contact</button>
+      <div  style="margin-right: 1rem;" class="form-check align-self-center">
+          <input class="form-check-input"  type="checkbox" [checked]="localcheck=='true'" (change)="setStyle($event)">
+          <label class="form-check-label" for="flexCheckDefault">
+            US Style
+          </label>
+        </div>
+  </div>
+  
+</div>
+<div class="container">
+<div class="row">
+
+
+<div *ngFor="let contact of contacts" class="col-md-4">
+  <div [class]="getCurrentContactClass(contact)" (click)="setCurrentContact(contact)" class="card" style="width: 18rem;">
+    
+ 
+      <img *ngIf="contact.gender" class="card-img-top img-thumbnail" src="assets/images/female.png" alt="Card image cap">
+      <img *ngIf="!contact.gender" class="card-img-top img-thumbnail" src="assets/images/male.png" alt="Card image cap">
+    <div *ngIf="localcheck=='false'" class="card-body">
+      <h5 class="card-title">{{contact.contactName}} {{contact.contactLastName}} </h5>
+      <p class="card-text">{{contact.contactPhone}}</p>
+    </div>
+    <div *ngIf="localcheck=='true'" class="card-body">
+      <h5 class="card-title">{{contact.contactLastName}},{{contact.contactName}} </h5>
+      <p class="card-text">{{contact.contactPhone}}</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>

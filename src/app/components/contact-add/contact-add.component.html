@@ -1,0 +1,77 @@
+<div class="content">
+  <table>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Create New Contact</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="contactAddForm">
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="contactName">First Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="contactName"
+                  formControlName="contactName"
+                  placeholder="First Name"
+                  [value]="contactName"
+                />
+              </div>
+            </td>
+            <td>
+              <label for="contactLastName">Last Name</label>
+              <input
+                class="form-control"
+                type="text"
+                id="contactLastName"
+                formControlName="contactLastName"
+                placeholder="Last Name"
+                [value]="contactLastName"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="contactPhone"
+                  formControlName="contactPhone"
+                  placeholder="Phone Number"
+                  [value]="contactPhone"
+                />
+              </div>
+            </td>
+            <td>
+              <input
+                class="form-check-input position-static from-control"
+                type="radio"
+                id="gender"
+                formControlName="gender"
+                value="false"
+                
+              />
+              Man
+              <input
+                class="form-check-input position-static from-control"
+                type="radio"
+                id="gender"
+                formControlName="gender"
+                value="true"
+              />
+              Woman
+            </td>
+          </tr>
+        </form>
+      </div>
+      <div class="card-footer d-flex justify-content-end">
+          <button class="btn btn-light" routerLink="/contacts" >Cancel</button>
+          <button class="btn btn-primary" (click)="add()">Save Contact</button>
+      </div>
+    </div>
+  </table>
+</div>
